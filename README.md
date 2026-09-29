@@ -36,6 +36,18 @@ Ghostty liest danach zusätzlich `~/Library/Application Support/com.mitchellh.gh
 
 Ghostty einmal ganz beenden (`cmd+q`) und neu starten. Beim Start fragt macOS nach der Bedienungshilfen-Freigabe. Die braucht die globale Taste `cmd+^`, die das Quick Terminal von oben einblendet. Ohne Freigabe tut die Taste nichts, eine Fehlermeldung gibt es nicht. Nachtragen lässt sich die Freigabe unter Systemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen.
 
+### 4. Beim Login starten
+
+Die Config setzt `initial-window = false`: Ghostty startet ohne Fenster und wartet im Hintergrund auf `cmd+^`. Damit das schon ab dem Login gilt, Ghostty als Anmeldeobjekt eintragen. Am einfachsten per Rechtsklick aufs Dock-Icon → Optionen → Bei der Anmeldung öffnen. Der Eintrag erscheint dann unter Systemeinstellungen → Allgemein → Anmeldeobjekte.
+
+Alternativ, etwa für ein Setup-Skript:
+
+```sh
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Ghostty.app", hidden:true}'
+```
+
+`initial-window = false` gilt auch beim Start von Hand, etwa über Spotlight. Dann erscheint ebenfalls kein Fenster. Ein Klick aufs Dock-Icon oder `cmd+n` öffnet eins.
+
 ## Prüfen & neu laden
 
 ```sh

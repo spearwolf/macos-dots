@@ -1559,7 +1559,7 @@ quit-after-last-window-closed-delay =
 # `quit-after-last-window-closed-delay` is set, setting `initial-window` to
 # `false` will mean that Ghostty will quit after the configured delay if no
 # window is ever created. Only implemented on Linux and macOS.
-initial-window = true
+initial-window = false
 
 # The position of the "quick" terminal window. To learn more about the
 # quick terminal, see the documentation for the `toggle_quick_terminal`

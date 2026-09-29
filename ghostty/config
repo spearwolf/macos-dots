@@ -3,7 +3,7 @@
 # This template file has been automatically created at the following
 # path since Ghostty couldn't find any existing config files on your system:
 #
-#   /home/spw/.config/ghostty/config
+#   ~/.config/ghostty/config
 #
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
@@ -96,9 +96,8 @@
 # Changing this configuration at runtime will only affect new terminals, i.e.
 # new windows, tabs, etc.
 # font-family = 
-# font-family = "Adwaita Mono" 
 font-family = "JetBrainsMono Nerd Font Mono" 
-font-family = "Noto Color Emoji" 
+font-family = "Apple Color Emoji" 
 # font-family = "Monaspace Xenon" 
 
 font-family-bold = 
@@ -192,7 +191,7 @@ font-feature =
 # On Linux with GTK, font size is scaled according to both display-wide and
 # text-specific scaling factors, which are often managed by your desktop
 # environment (e.g. the GNOME display scale and large text settings).
-font-size = 11
+font-size = 13
 
 # A repeatable configuration to set one or more font variations values for
 # a variable font. A variable font is a single font, usually with a filename
@@ -371,30 +370,6 @@ adjust-box-thickness =
 # terminals. Only new terminals will use the new configuration.
 # grapheme-width-method = unicode
 grapheme-width-method = legacy
-
-# FreeType load flags to enable. The format of this is a list of flags to
-# enable separated by commas. If you prefix a flag with `no-` then it is
-# disabled. If you omit a flag, its default value is used, so you must
-# explicitly disable flags you don't want. You can also use `true` or `false`
-# to turn all flags on or off.
-# 
-# This configuration only applies to Ghostty builds that use FreeType.
-# This is usually the case only for Linux builds. macOS uses CoreText
-# and does not have an equivalent configuration.
-# 
-# Available flags:
-# 
-#   * `hinting` - Enable or disable hinting, enabled by default.
-#   * `force-autohint` - Use the freetype auto-hinter rather than the
-#     font's native hinter. Enabled by default.
-#   * `monochrome` - Instructs renderer to use 1-bit monochrome
-#     rendering. This option doesn't impact the hinter.
-#     Enabled by default.
-#   * `autohint` - Use the freetype auto-hinter. Enabled by default.
-# 
-# Example: `hinting`, `no-hinting`, `force-autohint`, `no-force-autohint`
-# freetype-load-flags = hinting,force-autohint,monochrome,autohint
-freetype-load-flags = hinting,force-autohint,autohint
 
 # A theme to use. This can be a built-in theme name, a custom theme
 # name, or an absolute path to a custom theme file. Ghostty also supports
@@ -708,7 +683,7 @@ split-divider-color =
 # This flag sets the `initial-command` configuration, see that for more
 # information.
 # command = 
-command = /bin/bash
+command = 
 
 # This is the same as "command", but only applies to the first terminal
 # surface created when Ghostty starts. Subsequent terminal surfaces will use
@@ -742,7 +717,7 @@ command = /bin/bash
 #     manually.
 # 
 # initial-command = 
-initial-command = /bin/bash
+initial-command = 
 
 # If true, keep the terminal open after the command exits. Normally, the
 # terminal window closes when the running command (such as a shell) exits.
@@ -832,31 +807,6 @@ fullscreen = false
 # be set. This latter case may require you to restart programs such as Neovim
 # to get the new title.
 title = 
-
-# The setting that will change the application class value.
-# 
-# This controls the class field of the `WM_CLASS` X11 property (when running
-# under X11), and the Wayland application ID (when running under Wayland).
-# 
-# Note that changing this value between invocations will create new, separate
-# instances, of Ghostty when running with `gtk-single-instance=true`. See that
-# option for more details.
-# 
-# The class name must follow the requirements defined [in the GTK
-# documentation](https://docs.gtk.org/gio/type_func.Application.id_is_valid.html).
-# 
-# The default is `com.mitchellh.ghostty`.
-# 
-# This only affects GTK builds.
-class = 
-
-# This controls the instance name field of the `WM_CLASS` X11 property when
-# running under X11. It has no effect otherwise.
-# 
-# The default is `ghostty`.
-# 
-# This only affects GTK builds.
-x11-instance-name = 
 
 # The directory to change to after starting the command.
 # 
@@ -1044,72 +994,19 @@ working-directory =
 # Ghostty will attempt to request these permissions. If the permissions are
 # not granted, the keybind will not work. On macOS, you can find these
 # permissions in System Preferences -> Privacy & Security -> Accessibility.
-keybind = ctrl+comma=open_config
-keybind = shift+insert=paste_from_selection
-keybind = ctrl+page_down=next_tab
-keybind = ctrl+shift+v=paste_from_clipboard
-keybind = ctrl+alt+up=goto_split:up
-keybind = ctrl+shift+a=select_all
-keybind = shift+up=adjust_selection:up
-keybind = alt+five=goto_tab:5
-keybind = super+ctrl+right_bracket=goto_split:next
-keybind = ctrl+equal=increase_font_size:1
-keybind = ctrl+shift+o=new_split:right
-keybind = performable:ctrl+shift+c=copy_to_clipboard
-keybind = ctrl+shift+q=quit
-keybind = ctrl+shift+n=new_window
-keybind = ctrl+shift+page_down=jump_to_prompt:1
-keybind = ctrl+shift+comma=reload_config
-keybind = ctrl+minus=decrease_font_size:1
-keybind = shift+left=adjust_selection:left
-keybind = super+ctrl+shift+up=resize_split:up,10
-keybind = alt+eight=goto_tab:8
-keybind = shift+page_up=scroll_page_up
-keybind = ctrl+alt+shift+j=write_screen_file:open
-keybind = ctrl+shift+left=previous_tab
-keybind = ctrl+shift+w=close_tab
-keybind = super+ctrl+shift+equal=equalize_splits
-keybind = shift+end=scroll_to_bottom
-keybind = ctrl+zero=reset_font_size
-keybind = alt+three=goto_tab:3
-keybind = ctrl+shift+j=write_screen_file:paste
 keybind = ctrl+enter=unbind
-keybind = ctrl+page_up=previous_tab
-keybind = shift+right=adjust_selection:right
-keybind = ctrl+tab=next_tab
-keybind = ctrl+alt+left=goto_split:left
-keybind = shift+page_down=scroll_page_down
-keybind = ctrl+shift+up=scroll_page_lines:-1
-keybind = ctrl+shift+down=scroll_page_lines:1
-keybind = ctrl+shift+right=next_tab
-keybind = ctrl+shift+page_up=jump_to_prompt:-1
-keybind = alt+nine=last_tab
-keybind = ctrl+shift+t=new_tab
-keybind = shift+down=adjust_selection:down
-keybind = super+ctrl+shift+left=resize_split:left,10
-keybind = ctrl+shift+tab=previous_tab
-keybind = alt+two=goto_tab:2
-keybind = ctrl+alt+down=goto_split:down
-keybind = super+ctrl+shift+down=resize_split:down,10
-keybind = super+ctrl+shift+right=resize_split:right,10
-keybind = ctrl+plus=increase_font_size:1
-keybind = alt+four=goto_tab:4
-keybind = ctrl+insert=copy_to_clipboard
-keybind = ctrl+shift+e=new_split:down
-keybind = ctrl+alt+right=goto_split:right
-keybind = alt+f4=close_window
-keybind = alt+one=goto_tab:1
-keybind = ctrl+shift+enter=toggle_split_zoom
-keybind = shift+home=scroll_to_top
-keybind = super+ctrl+left_bracket=goto_split:previous
-keybind = ctrl+shift+i=inspector:toggle
-keybind = alt+six=goto_tab:6
-keybind = alt+seven=goto_tab:7
 # ctrl+shift+Scrolltasten gehen absichtlich durch an das laufende Programm
-# (tmux scrollt damit seine Pane-History). page_up/page_down muessen den
-# jump_to_prompt-Default explizit loeschen, sonst konsumiert Ghostty sie wieder.
+# (tmux scrollt damit seine Pane-History). Die explizite Freigabe sichert das ab,
+# falls ein Ghostty-Default diese Tasten je belegt.
+keybind = ctrl+shift+up=unbind
+keybind = ctrl+shift+down=unbind
 keybind = ctrl+shift+page_up=unbind
 keybind = ctrl+shift+page_down=unbind
+keybind = ctrl+shift+home=unbind
+keybind = ctrl+shift+end=unbind
+# Quick Terminal systemweit ein-/ausblenden (cmd+^ auf deutscher Tastatur).
+# Braucht die Bedienungshilfen-Freigabe fuer Ghostty in den Systemeinstellungen.
+keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # Horizontal window padding. This applies padding between the terminal cells
 # and the left and right window borders. The value is in points, meaning that
@@ -1306,7 +1203,7 @@ window-theme = ghostty
 #   * `display-p3` - Interpret colors in the Display P3 color space.
 # 
 # This setting is currently only supported on macOS.
-window-colorspace = srgb
+window-colorspace = display-p3
 
 # The initial window size. This size is in terminal grid cells by default.
 # Both values must be set to take effect. If only one value is set, it is
@@ -1614,7 +1511,7 @@ confirm-close-surface = true
 # On Linux, if this is `true`, Ghostty can delay quitting fully until a
 # configurable amount of time has passed after the last window is closed.
 # See the documentation of `quit-after-last-window-closed-delay`.
-quit-after-last-window-closed = true
+quit-after-last-window-closed = false
 
 # Controls how long Ghostty will stay running after the last open surface has
 # been closed. This only has an effect if `quit-after-last-window-closed` is
@@ -1994,7 +1891,7 @@ macos-titlebar-proxy-icon = visible
 # key, respectively.
 # 
 # This does not work with GLFW builds.
-macos-option-as-alt = 
+macos-option-as-alt = left
 
 # Whether to enable the macOS window shadow. The default value is true.
 # With some window managers and window transparency settings, you may
@@ -2094,67 +1991,6 @@ macos-icon-ghost-color =
 # This only has an effect when `macos-icon` is set to `custom-style`.
 macos-icon-screen-color = 
 
-# Put every surface (tab, split, window) into a dedicated Linux cgroup.
-# 
-# This makes it so that resource management can be done on a per-surface
-# granularity. For example, if a shell program is using too much memory,
-# only that shell will be killed by the oom monitor instead of the entire
-# Ghostty process. Similarly, if a shell program is using too much CPU,
-# only that surface will be CPU-throttled.
-# 
-# This will cause startup times to be slower (a hundred milliseconds or so),
-# so the default value is "single-instance." In single-instance mode, only
-# one instance of Ghostty is running (see gtk-single-instance) so the startup
-# time is a one-time cost. Additionally, single instance Ghostty is much
-# more likely to have many windows, tabs, etc. so cgroup isolation is a
-# big benefit.
-# 
-# This feature requires systemd. If systemd is unavailable, cgroup
-# initialization will fail. By default, this will not prevent Ghostty
-# from working (see linux-cgroup-hard-fail).
-# 
-# Valid values are:
-# 
-#   * `never` - Never use cgroups.
-#   * `always` - Always use cgroups.
-#   * `single-instance` - Enable cgroups only for Ghostty instances launched
-#     as single-instance applications (see gtk-single-instance).
-# 
-linux-cgroup = single-instance
-
-# Memory limit for any individual terminal process (tab, split, window,
-# etc.) in bytes. If this is unset then no memory limit will be set.
-# 
-# Note that this sets the "memory.high" configuration for the memory
-# controller, which is a soft limit. You should configure something like
-# systemd-oom to handle killing processes that have too much memory
-# pressure.
-linux-cgroup-memory-limit = 
-
-# Number of processes limit for any individual terminal process (tab, split,
-# window, etc.). If this is unset then no limit will be set.
-# 
-# Note that this sets the "pids.max" configuration for the process number
-# controller, which is a hard limit.
-linux-cgroup-processes-limit = 
-
-# If this is false, then any cgroup initialization (for linux-cgroup)
-# will be allowed to fail and the failure is ignored. This is useful if
-# you view cgroup isolation as a "nice to have" and not a critical resource
-# management feature, because Ghostty startup will not fail if cgroup APIs
-# fail.
-# 
-# If this is true, then any cgroup initialization failure will cause
-# Ghostty to exit or new surfaces to not be created.
-# 
-# Note: This currently only affects cgroup initialization. Subprocesses
-# must always be able to move themselves into an isolated cgroup.
-linux-cgroup-hard-fail = false
-
-# Enable or disable GTK's OpenGL debugging logs. The default is `true` for
-# debug builds, `false` for all others.
-gtk-opengl-debug = false
-
 # After GTK 4.14.0, we need to force the GSK renderer to OpenGL as the default
 # GSK renderer is broken on some systems. If you would like to override
 # that bekavior, set `gtk-gsk-renderer=default` and either use your system's
@@ -2162,70 +1998,6 @@ gtk-opengl-debug = false
 # renderer of choice before launching Ghostty. This setting has no effect when
 # using versions of GTK earlier than 4.14.0.
 # gtk-gsk-renderer = opengl
-
-# If `true`, the Ghostty GTK application will run in single-instance mode:
-# each new `ghostty` process launched will result in a new window if there is
-# already a running process.
-# 
-# If `false`, each new ghostty process will launch a separate application.
-# 
-# The default value is `desktop` which will default to `true` if Ghostty
-# detects that it was launched from the `.desktop` file such as an app
-# launcher (like Gnome Shell)  or by D-Bus activation. If Ghostty is launched
-# from the command line, it will default to `false`.
-# 
-# Note that debug builds of Ghostty have a separate single-instance ID
-# so you can test single instance without conflicting with release builds.
-gtk-single-instance = desktop
-
-# When enabled, the full GTK titlebar is displayed instead of your window
-# manager's simple titlebar. The behavior of this option will vary with your
-# window manager.
-# 
-# This option does nothing when `window-decoration` is false or when running
-# under macOS.
-# 
-# Changing this value at runtime and reloading the configuration will only
-# affect new windows.
-gtk-titlebar = true
-
-# Determines the side of the screen that the GTK tab bar will stick to.
-# Top, bottom, left, right, and hidden are supported. The default is top.
-# 
-# If this option has value `left` or `right` when using Adwaita, it falls
-# back to `top`. `hidden`, meaning that tabs don't exist, is not supported
-# without using Adwaita, falling back to `top`.
-# 
-# When `hidden` is set and Adwaita is enabled, a tab button displaying the
-# number of tabs will appear in the title bar. It has the ability to open a
-# tab overview for displaying tabs. Alternatively, you can use the
-# `toggle_tab_overview` action in a keybind if your window doesn't have a
-# title bar, or you can switch tabs with keybinds.
-gtk-tabs-location = top
-
-# If this is `true`, the titlebar will be hidden when the window is maximized,
-# and shown when the titlebar is unmaximized. GTK only.
-gtk-titlebar-hide-when-maximized = false
-
-# Determines the appearance of the top and bottom bars when using the
-# Adwaita tab bar. This requires `gtk-adwaita` to be enabled (it is
-# by default).
-# 
-# Valid values are:
-# 
-#  * `flat` - Top and bottom bars are flat with the terminal window.
-#  * `raised` - Top and bottom bars cast a shadow on the terminal area.
-#  * `raised-border` - Similar to `raised` but the shadow is replaced with a
-#    more subtle border.
-# 
-# Changing this value at runtime will only affect new windows.
-adw-toolbar-style = raised
-
-# If `true` (default), then the Ghostty GTK tabs will be "wide." Wide tabs
-# are the new typical Gnome style where tabs fill their available space.
-# If you set this to `false` then tabs will only take up space they need,
-# which is the old style.
-gtk-wide-tabs = true
 
 # If `true` (default), Ghostty will enable Adwaita theme support. This
 # will make `window-theme` work properly and will also allow Ghostty to
@@ -2240,15 +2012,6 @@ gtk-wide-tabs = true
 # This configuration only has an effect if Ghostty was built with
 # Adwaita support.
 # gtk-adwaita = false
-
-# Custom CSS files to be loaded.
-# 
-# This configuration can be repeated multiple times to load multiple files.
-# Prepend a ? character to the file path to suppress errors if the file does
-# not exist. If you want to include a file that begins with a literal ?
-# character, surround the file path in double quotes (").
-# The file size limit for a single stylesheet is 5MiB.
-gtk-custom-css = 
 
 # If `true` (default), applications running in the terminal can show desktop
 # notifications using certain escape sequences such as OSC 9 or OSC 777.

@@ -8,6 +8,8 @@ Dotfiles für macOS, derzeit zwei Configs: `tmux.conf` und `ghostty/config`. Kei
 
 ## Installation / Verlinkung
 
+Setup-Schritte (Brew-Pakete, Font, Symlinks, Bedienungshilfen-Freigabe) stehen in `README.md` — bei Änderungen am Setup dort mitpflegen.
+
 - `tmux.conf` ist per Symlink aktiv: `~/.tmux.conf -> ~/spaceland/macos-dots/tmux.conf`. Änderungen wirken also direkt auf die laufende Umgebung.
 - `ghostty/config` ebenso: `~/.config/ghostty/config -> ~/spaceland/macos-dots/ghostty/config`. Ghostty lädt danach noch `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` (leer) — was dort landet, überschreibt das Repo.
 

@@ -44,6 +44,5 @@ Die beiden Configs sind aufeinander abgestimmt; wer eine ändert, muss die ander
 - **Farben:** Beide nutzen die TokyoNight-Palette (Ghostty `theme = TokyoNight`, tmux-Statuszeile mit `#1a1b26`, `#7aa2f7`, `#bb9af7`, `#565f89`).
 - **Cursor:** Ghostty setzt Block + Blink; tmux reicht DECSCUSR per `terminal-overrides` (`Ss`/`Se`) an Ghostty durch.
 - **Scroll-Keybinds:** tmux bindet `C-S-Up/Down/PPage/NPage/Home/End` (ohne Prefix) zum Scrollen der Pane-History. Damit die Tasten tmux erreichen, darf Ghostty sie nicht selbst konsumieren — deshalb die expliziten `ctrl+shift+{up,down,page_up,page_down,home,end}=unbind` nach dem Keybind-Block. Neue Ghostty-Keybinds auf `ctrl+shift+…` gegen diese tmux-Bindings prüfen.
-- **Fenstertitel:** tmux reicht per `set-titles` den Pane-Titel an Ghostty durch; Ghostty hat dafür `shell-integration-features = …,no-title`, damit die Shell-Integration nicht dazwischenfunkt.
 - **Tastatur:** tmux `extended-keys` (CSI u) und `terminal-features` greifen über das Muster `xterm*` — passt, solange Ghostty `term = xterm-ghostty` behält.
 - **Scrollback:** Ghostty `scrollback-limit = 10000000` (Bytes), tmux `history-limit 100000` (Zeilen).

@@ -1006,6 +1006,11 @@ keybind = ctrl+shift+home=unbind
 keybind = ctrl+shift+end=unbind
 # Quick Terminal systemweit ein-/ausblenden (cmd+^ auf deutscher Tastatur).
 # Braucht die Bedienungshilfen-Freigabe fuer Ghostty in den Systemeinstellungen.
+# ^ ist auf dem deutschen Layout eine Tottaste, die Ghostty keiner physischen
+# Taste zuordnen kann (Inspector: "unidentified"). Daher Bind aufs Zeichen ^;
+# grave_accent ist auf ISO-Tastaturen die <-Taste neben dem linken Shift
+# und bleibt als Rueckfall, falls das Zeichen-Bind nicht greift.
+keybind = global:cmd+^=toggle_quick_terminal
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # Horizontal window padding. This applies padding between the terminal cells
@@ -1579,6 +1584,17 @@ initial-window = false
 # To enable this feature, bind the `toggle_quick_terminal` action to a key.
 quick-terminal-position = top
 
+# The size of the quick terminal.
+#
+# The size can be specified either as a percentage of the screen dimensions
+# (height/width), or as an absolute size in pixels (e.g. `20%`, `300px`).
+# A bare value without a suffix is a config error. A single value sets the
+# primary axis (height for top/bottom, width for left/right); a second value
+# separated by a comma sets the secondary axis (e.g. `50%,500px`).
+#
+# Available since: 1.2.0
+quick-terminal-size = 40%
+
 # The screen where the quick terminal should show up.
 # 
 # Valid values are:
@@ -1896,7 +1912,8 @@ macos-option-as-alt = left
 # Whether to enable the macOS window shadow. The default value is true.
 # With some window managers and window transparency settings, you may
 # find false more visually appealing.
-macos-window-shadow = true
+# Schatten aus, damit das Quick Terminal keine sichtbare Kante hat (gilt fuer alle Fenster).
+macos-window-shadow = false
 
 # If true, Ghostty on macOS will automatically enable the "Secure Input"
 # feature when it detects that a password prompt is being displayed.

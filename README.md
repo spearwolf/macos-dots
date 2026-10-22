@@ -20,12 +20,12 @@ ghostty +list-fonts --family="JetBrainsMono Nerd Font Mono"
 
 ### 2. Configs verlinken
 
-Die Dateien bleiben im Repo, im System liegen nur Symlinks darauf:
+Die Dateien bleiben im Repo, im System liegen nur Symlinks darauf. Aus dem Repo-Verzeichnis heraus ausführen (der Ablageort ist egal, `$PWD` liefert den absoluten Pfad):
 
 ```sh
-ln -s ~/spaceland/macos-dots/tmux.conf ~/.tmux.conf
+ln -s "$PWD/tmux.conf" ~/.tmux.conf
 mkdir -p ~/.config/ghostty
-ln -s ~/spaceland/macos-dots/ghostty/config ~/.config/ghostty/config
+ln -s "$PWD/ghostty/config" ~/.config/ghostty/config
 ```
 
 Liegt dort schon eine Datei, bricht `ln -s` ab. Die alte Datei dann vorher sichern oder entfernen.

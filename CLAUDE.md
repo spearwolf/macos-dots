@@ -25,7 +25,7 @@ In Ghostty lädt `cmd+shift+comma` die Config neu; `ghostty +show-config` zeigt 
 
 ## Aufbau von `ghostty/config`
 
-Die Datei (~2100 Zeilen) ist ein vollständig ausgeschriebenes Ghostty-Template: jede Option steht mit ihrem Doku-Kommentar da, die meisten auf Default oder leer. Gesetzte Werte findet man mit:
+Die Datei (~3600 Zeilen, Stand Ghostty 1.4) ist ein vollständig ausgeschriebenes Ghostty-Template: jede Option steht mit ihrem Doku-Kommentar da. Nicht gesetzte Optionen stehen mit ihrem Default auskommentiert direkt darunter (`# key = default`); zum Setzen das `# ` entfernen und den Wert ändern. Keine leeren aktiven Zeilen wie `selection-foreground =` stehen lassen — ein leerer Wert setzt die Option auf den eingebauten Default zurück und überschreibt damit, was `theme` gesetzt hat. Gesetzte Werte findet man mit:
 
 ```sh
 grep -nEv '^\s*(#|$)' ghostty/config
@@ -33,7 +33,7 @@ grep -nEv '^\s*(#|$)' ghostty/config
 
 Eine Option an ihrer bestehenden Stelle ändern, nicht unten anhängen — sonst existiert sie doppelt, und der spätere Wert gewinnt stillschweigend. Ausnahme ist bewusstes Überschreiben wie bei den `unbind`-Zeilen nach dem Keybind-Block.
 
-Das Template stammt ursprünglich von Linux; die GTK-/X11-/FreeType-/cgroup-Optionen und der Dump der Linux-Default-Keybinds wurden entfernt. Nicht wieder einführen: Ghostty-Keybinds addieren sich zu den macOS-Defaults (cmd-basiert), jeder zusätzliche `ctrl+…`-Bind fängt Tasten ab, bevor tmux sie sieht. `command`/`initial-command` bleiben leer, damit die Login-Shell (`/opt/homebrew/bin/bash`) startet — `/bin/bash` wäre auf macOS Bash 3.2.
+Das Template wurde mit Ghostty 1.4 aus `ghostty +show-config --default --docs` neu erzeugt. Dabei weggelassen: GTK-/X11-/FreeType-/cgroup- und sonstige Linux-only-Optionen sowie die Default-Dumps von `keybind`, `palette` und `command-palette-entry` (Doku steht da, Werte nicht). `quick-terminal-size` fehlt im Doku-Dump (leerer Default) und ist von Hand eingefügt. Bei künftigen Ghostty-Updates genauso vorgehen und die gesetzten Werte samt deutscher Kommentare übertragen; danach `ghostty +show-config` vorher/nachher vergleichen. Nicht wieder einführen: Ghostty-Keybinds addieren sich zu den macOS-Defaults (cmd-basiert), jeder zusätzliche `ctrl+…`-Bind fängt Tasten ab, bevor tmux sie sieht. `command`/`initial-command` bleiben leer, damit die Login-Shell (`/opt/homebrew/bin/bash`) startet — `/bin/bash` wäre auf macOS Bash 3.2.
 
 `macos-option-as-alt = left` ist bewusst nur links: deutsches Mac-Layout, die rechte Option-Taste wird für `@ ~ | [ ] { }` gebraucht.
 
@@ -45,4 +45,4 @@ Die beiden Configs sind aufeinander abgestimmt; wer eine ändert, muss die ander
 - **Cursor:** Ghostty setzt Block + Blink; tmux reicht DECSCUSR per `terminal-overrides` (`Ss`/`Se`) an Ghostty durch.
 - **Scroll-Keybinds:** tmux bindet `C-S-Up/Down/PPage/NPage/Home/End` (ohne Prefix) zum Scrollen der Pane-History. Damit die Tasten tmux erreichen, darf Ghostty sie nicht selbst konsumieren — deshalb die expliziten `ctrl+shift+{up,down,page_up,page_down,home,end}=unbind` nach dem Keybind-Block. Neue Ghostty-Keybinds auf `ctrl+shift+…` gegen diese tmux-Bindings prüfen.
 - **Tastatur:** tmux `extended-keys` (CSI u) und `terminal-features` greifen über das Muster `xterm*` — passt, solange Ghostty `term = xterm-ghostty` behält.
-- **Scrollback:** Ghostty `scrollback-limit = 10000000` (Bytes), tmux `history-limit 100000` (Zeilen).
+- **Scrollback:** Ghostty `scrollback-limit-bytes = 10000000`, tmux `history-limit 100000` (Zeilen).

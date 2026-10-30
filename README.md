@@ -36,7 +36,17 @@ Ghostty liest danach zusätzlich `~/Library/Application Support/com.mitchellh.gh
 
 Ghostty einmal ganz beenden (`cmd+q`) und neu starten. Beim Start fragt macOS nach der Bedienungshilfen-Freigabe. Die braucht die globale Taste `cmd+^`, die das Quick Terminal von oben einblendet. Ohne Freigabe tut die Taste nichts, eine Fehlermeldung gibt es nicht. Nachtragen lässt sich die Freigabe unter Systemeinstellungen → Datenschutz & Sicherheit → Bedienungshilfen.
 
-### 4. Beim Login starten
+### 4. Tab-Übersicht auf `cmd+shift+t`
+
+macOS-Fenstertabs haben im Menü Window den Eintrag „Show All Tabs“, eine Übersicht aller Tabs. Eine Ghostty-Action dafür gibt es auf macOS nicht (`toggle_tab_overview` ist Linux-only), die Taste kommt deshalb über die App-Kurzbefehle des Systems:
+
+```sh
+defaults write com.mitchellh.ghostty NSUserKeyEquivalents -dict-add "Show All Tabs" '@$t'
+```
+
+Wirkt nach einem Neustart von Ghostty. In `ghostty/config` ist dafür der Ghostty-Default `cmd+shift+t=undo` per `unbind` freigegeben (Undo bleibt auf `cmd+z`). Der Menütitel muss exakt passen, Ghostty hat englische Menüs. Wieder entfernen: `defaults delete com.mitchellh.ghostty NSUserKeyEquivalents`.
+
+### 5. Beim Login starten
 
 Die Config setzt `initial-window = false`: Ghostty startet ohne Fenster und wartet im Hintergrund auf `cmd+^`. Damit das schon ab dem Login gilt, Ghostty als Anmeldeobjekt eintragen. Am einfachsten per Rechtsklick aufs Dock-Icon → Optionen → Bei der Anmeldung öffnen. Der Eintrag erscheint dann unter Systemeinstellungen → Allgemein → Anmeldeobjekte.
 

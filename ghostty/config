@@ -1814,6 +1814,10 @@ keybind = ctrl+shift+end=unbind
 # und bleibt als Rueckfall, falls das Zeichen-Bind nicht greift.
 keybind = global:cmd+^=toggle_quick_terminal
 keybind = global:cmd+grave_accent=toggle_quick_terminal
+# cmd+shift+t ist per Default "undo" (geschlossenen Tab wiederholen, geht auch
+# mit cmd+z). Freigeben, damit der App-Kurzbefehl fuer das macOS-Menue
+# "Show All Tabs" die Taste bekommt (siehe README).
+keybind = cmd+shift+t=unbind
 
 # Remap modifier keys within Ghostty. This allows you to swap or reassign
 # modifier keys at the application level without affecting system-wide
